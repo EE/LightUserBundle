@@ -1,0 +1,16 @@
+parameters:
+    ee_light_user.user_provider.class: EE\LightUserBundle\Security\Core\User\UserProvider
+    ee_light_user.user_manager.class: EE\LightUserBundle\Doctrine\UserManager
+    ee_light_user.entity.user.class: EE\TYSBundle\Entity\User # TODO move this to config
+
+services:
+    ee_light_user.user_manager:
+        class: %ee_light_user.user_manager.class%
+        arguments:
+          - "@doctrine"
+          - "%ee_light_user.entity.user.class%"
+
+    ee_light_user.user_provider:
+        class: %ee_light_user.user_provider.class%
+        arguments:
+          - "@ee_light_user.user_manager"

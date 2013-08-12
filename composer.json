@@ -1,0 +1,23 @@
+{
+    "name": "ee/lightuser-bundle",
+    "type": "symfony-bundle",
+    "description": "Inspired by FOSUserBundle but much simpler. Perfect when you just need a simple user.",
+    "keywords": ["user", "user provider", "user manager"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Konrad Podgórski",
+            "email": "konrad.podgorski@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "EE\\LightUserBundle": ""
+        }
+    },
+    "target-dir": "EE/LightUserBundle",
+    "require": {
+        "symfony/symfony": "~2.1"
+    }
+
+}
