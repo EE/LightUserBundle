@@ -6,7 +6,7 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
-use EE\LightUserBundle\Model\UserManagerInterface;
+use EE\LightUserBundle\Doctrine\UserManagerInterface;
 
 /**
  * Class UserProvider
@@ -54,7 +54,7 @@ class UserProvider implements UserProviderInterface
             throw new UnsupportedUserException('Account is not supported.');
         }
 
-        $refreshedUser = $this->findUserBy(array('id' => $user->getId()));
+        $refreshedUser = $this->userManager->findUserById($user->getId());
 
         if (null === $refreshedUser) {
             throw new UsernameNotFoundException(sprintf('User with ID "%d" could not be reloaded.', $user->getId()));

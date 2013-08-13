@@ -1,8 +1,8 @@
 <?php
 
-namespace EE\LightUserBundle\Model;
+namespace EE\LightUserBundle\Doctrine;
 
-use EE\LightUserBundle\Model\User;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class UserManagerInterface
@@ -19,12 +19,12 @@ interface UserManagerInterface {
     public function createUser();
 
     /**
-     * @param User $user
+     * @param UserInterface $user
      * @param bool $flush
      *
      * @return mixed
      */
-    public function updateUser(User $user, $flush = false);
+    public function updateUser(UserInterface $user, $flush = true);
 
     public function findUserByUsername($username);
 
