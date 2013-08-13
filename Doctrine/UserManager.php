@@ -3,8 +3,8 @@
 namespace EE\LightUserBundle\Doctrine;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use EE\LightUserBundle\Model\UserManagerInterface;
-use EE\LightUserBundle\Model\User;
+use EE\LightUserBundle\Doctrine\UserManagerInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class UserManager
@@ -28,7 +28,7 @@ class UserManager implements UserManagerInterface
 
     }
 
-    public function updateUser(User $user, $flush = true)
+    public function updateUser(UserInterface $user, $flush = true)
     {
         $usernameCanonical = $this->canonicalize($user->getUsername());
 
@@ -62,11 +62,43 @@ class UserManager implements UserManagerInterface
         return $this->class;
     }
 
+    /**
+     * Returns a user by its username
+     *
+     * @param string $username
+     *
+     * @return UserInterface
+     */
     public function findUserByUsername($username)
     {
         $usernameCanonical = $this->canonicalize($username);
 
         return $this->repository->findOneBy(array('usernameCanonical'=> $usernameCanonical));
+    }
+
+    /**
+     * Returns a user by its ID
+     *
+     * @param integer $id
+     *
+     * @return UserInterface
+     */
+    public function findUserById($id)
+    {
+        return $this->repository->find($id);
+    }
+
+    /**
+     * Returns a user that match given criteria
+     * Internally uses findOneBy on entity repository
+     *
+     * @param array $criteria
+     *
+     * @return UserInterface
+     */
+    public function findUserBy(array $criteria)
+    {
+        return $this->repository->findOneBy($criteria);
     }
 
     /**

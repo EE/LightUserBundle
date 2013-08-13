@@ -1,0 +1,12 @@
+EE\LightUserBundle\Entity\User:
+    type: mappedSuperclass
+    table: null
+    fields:
+        username:
+            type: string
+            length: 255
+        usernameCanonical:
+            type: string
+            length: 255
+            unique: true
+    lifecycleCallbacks: {  }

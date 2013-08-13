@@ -2,7 +2,6 @@
 
 namespace EE\LightUserBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use EE\LightUserBundle\Model\User as BaseUser;
 
 /**
@@ -10,12 +9,10 @@ use EE\LightUserBundle\Model\User as BaseUser;
  *
  * @author Konrad Podgórski <konrad.podgorski@gmail.com>
  */
-class User extends BaseUser
+abstract class User extends BaseUser
 {
-    /** @ORM\Column(name="username", type="string", length=255) */
     protected $username;
 
-    /** @ORM\Column(name="username_canonical", type="string", length=255, unique=true) */
     protected $usernameCanonical;
 
     /**
