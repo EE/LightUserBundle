@@ -26,9 +26,9 @@ Important Note: This bundle is meant to work with Doctrine ORM only
 
 ## Step 3 - Create User Entity
 
-Get an annotated version [link](./Resources/doc/3-1_user_entity_annotations.md)
+- [User Entity using annotations](./Resources/doc/3-1_user_entity_annotations.md)
 
-Get a yml version [link](./Resources/doc/3-2_user_entity_yml.md)
+- [User Entity using yml config](./Resources/doc/3-2_user_entity_yml.md)
 
 ## Step 4 - Configuration
 
@@ -41,3 +41,14 @@ You must provide entity class (yup, that one from previous step)
             user:
                 class: Acme\DemoBundle\Entity\User
 
+Register user provider
+
+    # app/config.security.yml
+
+    providers:
+        lightuser:
+            id: ee_light_user.user_provider
+
+# Cookbook recipes
+
+- [Authenticating with Google](./Resources/doc/cookbook/authenticating_with_google.md)
