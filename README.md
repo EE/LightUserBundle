@@ -2,16 +2,16 @@ LightUserBundle
 =============
 Inspired by FOSUserBundle but much simpler. Perfect when you just need a simple user.
 
-Documentation in development, stay tuned!
+Important Note: This bundle is meant to work with Doctrine ORM only
 
 
-## Installation
+# Installation
 
-### Step 1 - Composer
+## Step 1 - Composer
 
     "ee/lightuser-bundle": "dev-master"
 
-### Step 2 - Enable bundle
+## Step 2 - Enable bundle
 
     class AppKernel extends Kernel
     {
@@ -24,9 +24,15 @@ Documentation in development, stay tuned!
 
         [...]
 
-### Configuration
+## Step 3 - Create User Entity
 
-You must provide entity class
+Get an annotated version [link](./Resources/doc/3-1_user_entity_annotations.md)
+
+Get a yml version [link](./Resources/doc/3-2_user_entity_yml.md)
+
+## Step 4 - Configuration
+
+You must provide entity class (yup, that one from previous step)
 
     # app/config/config.yml
 
