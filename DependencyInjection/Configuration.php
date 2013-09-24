@@ -23,8 +23,10 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->arrayNode('entity')
+                    ->isRequired()
                     ->children()
                         ->arrayNode('user')
+                            ->isRequired()
                             ->children()
                                 ->scalarNode('class')->isRequired()->cannotBeEmpty()->end()
                             ->end()
